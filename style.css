@@ -1,0 +1,49 @@
+body {
+  background-image: url("gif.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+form {
+  margin: auto;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 12px 0px aqua;
+  max-width: 200px;
+}
+
+label {
+  color: aqua;
+  padding-bottom: 0px;
+  display: block;
+}
+
+h1 {
+  margin-top: 120px;
+  margin-left: 671px;
+  color: aqua;
+}
+h2 {
+  margin-left: 720px;
+  color: aqua;
+}
+script {
+  margin-left: 50px;
+}
+
+#jsonOutput {
+  text-align: center;
+}
+
+#jsonOutput pre {
+  display: inline-block;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form#infoForm {
+  margin-top: 7px;
+}
