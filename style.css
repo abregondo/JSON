@@ -1,49 +1,145 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
 body {
-  background-image: url("gif.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-form {
-  margin: auto;
-  padding-top: 15px;
-  padding-left: 25px;
-  padding-bottom: 10px;
-  box-shadow: 0px 0px 12px 0px aqua;
-  max-width: 200px;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #ffeff0;
+    position: relative;
 }
 
-label {
-  color: aqua;
-  padding-bottom: 0px;
-  display: block;
+/* Background Styling */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
 }
 
-h1 {
-  margin-top: 120px;
-  margin-left: 671px;
-  color: aqua;
-}
-h2 {
-  margin-left: 720px;
-  color: aqua;
-}
-script {
-  margin-left: 50px;
+.tulips {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
-#jsonOutput {
-  text-align: center;
+/* Envelope Styles */
+.envelope {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 200px;
+    background-color: #f1c7b0;
+    border-radius: 10px;
+    border: 2px solid #e07446;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out; /* Smooth transition for opening */
 }
 
-#jsonOutput pre {
-  display: inline-block;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.flap {
+    position: absolute;
+    background-color: #f1c7b0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 1s ease;
 }
 
-form#infoForm {
-  margin-top: 7px;
+.top-flap {
+    top: -10px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    transform-origin: top;
+    transform: rotateX(0deg);
+}
+
+.letter {
+    position: relative;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 2;
+    height: 100%;
+    max-height: 100%; /* Ensure it doesn't overflow the envelope */
+    overflow-y: auto; /* Scroll if text exceeds max height */
+}
+
+/* Letter inside Envelope */
+.letter h1 {
+    color: #e74c3c;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Animation to open the envelope */
+.open-flap {
+    transform: rotateX(-180deg);
+}
+
+/* Tulip Floating Animation */
+@keyframes tulipMove {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-200vh) rotate(360deg);
+    }
+}
+
+/* Tulip Image Movement */
+.tulip {
+    position: absolute;
+    animation: tulipMove 20s infinite linear;
+    opacity: 0.7;
+    transform-origin: center;
+    width: 60px; /* Adjust size of tulips */
+    height: auto;
+}
+
+.tulip1 {
+    animation-delay: 0s;
+}
+
+.tulip2 {
+    animation-delay: 5s;
+}
+
+.tulip3 {
+    animation-delay: 10s;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .envelope {
+        width: 250px;
+        height: 170px;
+    }
+
+    .letter h1 {
+        font-size: 2em;
+    }
+
+    .letter p {
+        font-size: 1em;
+    }
 }
